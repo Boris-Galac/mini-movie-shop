@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1.4;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+h1,
+h2,
+h3 {
+    max-width: 65ch;
+    line-height: 1.3;
+    letter-spacing: 1px;	
+  }
+
+input,
+button,
+textarea,
+select {
+font: inherit;
+  }
+
+ul,
+li {
+    list-style: none;
+  }
+  
+a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+button {
+  background: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* style */
+body {
+    background: linear-gradient(130deg, rgb(37, 38, 41), rgb(18, 24, 34));
+    background-attachment: fixed;
+}
+.inner-container {
+    margin: auto;
+    padding: 4rem;
+    color: white;
+}
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    gap: 2rem;
+}
+.movie {
+    position: relative;
+    border-radius: 4px;
+    background: rgb(39, 48, 53);
+    padding: 1rem;
+    box-shadow: 0 0 .8rem rgba(0, 0, 0, 0.193);
+}
+.disabled-movie::after {
+    content: '';
+    position: absolute;
+    border-radius: 4px;
+    inset: 0;
+    background-color: #3443559a;
+    z-index: 2;
+    animation: disabled .3s forwards ease-in-out;
+}
+@keyframes disabled {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.movie-cover-img {
+    width: 100%;
+    aspect-ratio: 1/1.4;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+.godfather {
+    object-position: top;
+}
+.shawshank {
+    object-position: top;
+}
+.movie-heading {
+    margin-bottom: 1rem;
+}
+.movie-description {
+    margin-bottom: 1rem;
+}
+.movie-evaluation {
+    display: flex;
+    gap: 8px;
+    user-select: none;
+    margin-bottom: 5rem;
+}
+.star {
+    cursor: pointer;
+    display: inline-block;
+}
+.active {
+    color: #e3e300;
+    animation: star .2s forwards ease-in-out;
+}
+@keyframes star {
+    from {
+        filter: drop-shadow(0 0 0px rgba(255, 255, 0, 0.62));
+
+    }
+    to {
+        
+        filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.62));
+    }
+}
+.movie-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.movie-price {
+    font-size: 1.3rem;
+    padding: .5rem;
+    border: 2px solid rgb(95, 95, 67);
+    border-radius: 4px;
+    user-select: none;
+}
+.movie-watch-btn {
+    background: #000;
+    color: rgb(237, 237, 114);
+    border: 2px solid yellowgreen;
+    border-radius: 3px;
+    transition: all .15s ease-in-out;
+    z-index: 3;
+}
+.disabled-btn {
+    background: rgb(19, 23, 29);
+    color: #687079;
+    border: 2px solid rgb(107, 107, 107);
+    border-radius: 3px;
+    transition: all .15s ease-in-out;
+}
+.movie-watch-btn:hover {
+    background-color: rgb(18, 23, 28);
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.265);
+}
+.cart {
+    margin-block: 3rem;
+    background: rgb(3, 12, 22);
+    padding: 1rem;
+    border-radius: .5rem;
+    max-width: 40vw;
+}
+.close {
+    position: absolute;
+    z-index: 10;
+    color: rgb(206, 229, 243);
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    background: rgb(26, 34, 42);
+    border: 4px solid rgb(206, 229, 243);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 1rem;
+    border-radius: 50%;
+    animation: undo .4s forwards ease-in-out;
+}
+.spent {
+    font-weight: 400;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding: .2rem;
+    margin-top: 1rem;
+    background: rgb(17, 29, 42);
+    border-radius: 4px;
+}
+@keyframes undo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 760px) {
+    .inner-container {
+        padding: 1rem;
+    }
+    .cart {
+        max-width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    .inner-container {
+        padding: 1rem;
+    }
+    .cart {
+        margin-block: 3rem;
+        background: rgb(3, 12, 22);
+        padding: 1rem;
+        border-radius: .5rem;
+        max-width: 100%;
+    }
+}
+
