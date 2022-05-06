@@ -1,10 +1,26 @@
 //// stars
 
-let stars = document.querySelectorAll('.star');
+let stars = document.querySelectorAll('.movie-evaluation');
 
 stars.forEach((star, ind, arr) => {
   star.addEventListener('click', (e) => {
-    e.target.classList.toggle('active');
+    e.target.classList.toggle('selected');
+    const ratingStars = [...e.target.parentElement.getElementsByTagName('i')];
+
+    let remove = false;
+    ratingStars.forEach((star) => {
+      if (!star.className.includes('selected') && !remove) {
+        star.classList.add('active');
+      } else {
+        remove = true;
+        if (star.className.includes('selected')) {
+          star.classList.remove('selected');
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      }
+    });
   });
 });
 //// buy btn
